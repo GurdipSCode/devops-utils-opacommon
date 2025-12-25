@@ -12,7 +12,7 @@ Reusable **OPA / Rego standard library** for DevSecOps, GitOps, and Terraform go
 
 ## 🎯 Purpose
 
-`opa-common` is a **domain-agnostic OPA library** that provides shared governance primitives used across multiple policy repos:
+`devops-utils-opacommon` is a **domain-agnostic OPA library** that provides shared governance primitives used across multiple policy repos:
 
 - Terraform governance
 - GitOps / Kubernetes governance
