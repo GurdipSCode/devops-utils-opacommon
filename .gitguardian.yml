@@ -1,0 +1,47 @@
+# .gitguardian.yml
+version: 1
+
+# Define which files and paths to scan
+scan:
+  include:
+    - "**/*.rego"
+    - "**/*.toml"
+    - "**/*.json"
+    - "**/*.yaml"
+    - "**/*.yml"
+  exclude:
+    - "tests/**"
+    - "examples/**"
+    - ".git/**"
+    - "docs/**"
+
+# Define detection rules
+detection:
+  # Enable standard secrets detection
+  - type: "standard"
+
+  # Optional: add custom regex to catch secrets that might appear in examples
+  - type: "regex"
+    pattern: "(?i)AKIA[0-9A-Z]{16}" # AWS Access Key
+    message: "AWS Access Key detected, ensure this is a placeholder."
+
+  - type: "regex"
+    pattern: "(?i)-----BEGIN PRIVATE KEY-----"
+    message: "Private key detected, do not commit private keys to Git."
+
+  - type: "regex"
+    pattern: "(?i)vault_token_[0-9a-zA-Z]+"
+    message: "Vault token detected. Use environment injection or OPA exceptions."
+
+# Ignore false positives
+ignore:
+  # Allow placeholder examples in docs or tests
+  - "**/tests/**"
+  - "**/examples/**"
+
+# Scan settings
+settings:
+  severity: high  # default severity for violations
+  max_file_size: 5000000 # 5 MB max per file
+  scan_binary_files: false
+  exclude_large_files: true
