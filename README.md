@@ -15,7 +15,7 @@ Reusable **OPA / Rego standard library** for DevSecOps, GitOps, and Terraform go
 `devops-utils-opacommon` is a **domain-agnostic OPA library** that provides shared governance primitives used across multiple policy repos:
 
 - Terraform governance
-- GitOps / Kubernetes governance
+- GitOps
 - CI/CD (Buildkite, GitHub Actions)
 - Vault, Splunk, Istio, Cloud infra
 - SIEM-integrated exception handling
@@ -30,7 +30,6 @@ Reusable **OPA / Rego standard library** for DevSecOps, GitOps, and Terraform go
 - 🚦 **Violation budgets** (risk-based enforcement)
 - 🏷 **Standardised severity & metadata**
 - 🧩 **Terraform plan helpers**
-- ☸ **Kubernetes manifest helpers**
 - 🔁 **CI / environment awareness**
 - 📡 **SIEM-ready telemetry events**
 
